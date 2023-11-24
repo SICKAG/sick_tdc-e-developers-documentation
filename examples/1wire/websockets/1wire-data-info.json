@@ -1,0 +1,73 @@
+[
+    {
+        "id": "18f729d10e5a015b",
+        "type": "tab",
+        "label": "1WireData-DeviceInfoChange",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "26062706a31ee9b1",
+        "type": "websocket in",
+        "z": "18f729d10e5a015b",
+        "name": "",
+        "server": "1b0efbc6c563ad5a",
+        "client": "",
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "3b64f7c14abe9b37"
+            ]
+        ]
+    },
+    {
+        "id": "dd292f80333ac1ea",
+        "type": "debug",
+        "z": "18f729d10e5a015b",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3b64f7c14abe9b37",
+        "type": "json",
+        "z": "18f729d10e5a015b",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 120,
+        "wires": [
+            [
+                "dd292f80333ac1ea"
+            ]
+        ]
+    },
+    {
+        "id": "e53d30c3c5caef9f",
+        "type": "comment",
+        "z": "18f729d10e5a015b",
+        "name": "response",
+        "info": "Returns 1wire data",
+        "x": 740,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "1b0efbc6c563ad5a",
+        "type": "websocket-listener",
+        "path": "ws://192.168.0.100:31768/ws/tdce/onewire/data",
+        "wholemsg": "false"
+    }
+]

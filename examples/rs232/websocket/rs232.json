@@ -1,0 +1,127 @@
+[
+    {
+        "id": "773958437bc5a709",
+        "type": "tab",
+        "label": "RS232-websocket",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "66cd66949e4140b1",
+        "type": "group",
+        "z": "773958437bc5a709",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "61f52488e19b0f63",
+            "4aba74d86dc89377",
+            "1d4b517bd4ec1c94",
+            "fe19ebbe4dcfcfa9",
+            "b30cdce382a7830a"
+        ],
+        "x": 114,
+        "y": 159,
+        "w": 612,
+        "h": 182
+    },
+    {
+        "id": "61f52488e19b0f63",
+        "type": "websocket in",
+        "z": "773958437bc5a709",
+        "g": "66cd66949e4140b1",
+        "name": "",
+        "server": "13d5567780dbcf4c",
+        "client": "",
+        "x": 330,
+        "y": 200,
+        "wires": [
+            [
+                "4aba74d86dc89377"
+            ]
+        ]
+    },
+    {
+        "id": "4aba74d86dc89377",
+        "type": "debug",
+        "z": "773958437bc5a709",
+        "g": "66cd66949e4140b1",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "1d4b517bd4ec1c94",
+        "type": "inject",
+        "z": "773958437bc5a709",
+        "g": "66cd66949e4140b1",
+        "name": "send-data",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "dGVzdAo=",
+        "payloadType": "str",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "b30cdce382a7830a"
+            ]
+        ]
+    },
+    {
+        "id": "fe19ebbe4dcfcfa9",
+        "type": "comment",
+        "z": "773958437bc5a709",
+        "g": "66cd66949e4140b1",
+        "name": "change data to send",
+        "info": "Change data to send in msg.payload",
+        "x": 250,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b30cdce382a7830a",
+        "type": "websocket out",
+        "z": "773958437bc5a709",
+        "g": "66cd66949e4140b1",
+        "name": "",
+        "server": "13d5567780dbcf4c",
+        "client": "",
+        "x": 510,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "13d5567780dbcf4c",
+        "type": "websocket-listener",
+        "path": "ws://192.168.0.100:31768/ws/tdce/rs232/data",
+        "wholemsg": "false"
+    }
+]

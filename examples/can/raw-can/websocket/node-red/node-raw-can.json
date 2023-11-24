@@ -1,0 +1,63 @@
+[
+    {
+        "id": "ed96ba97252200e7",
+        "type": "tab",
+        "label": "CAN",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "056fd726400a3dcd",
+        "type": "websocket in",
+        "z": "ed96ba97252200e7",
+        "name": "",
+        "server": "c845786994195ab4",
+        "client": "",
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "a9f635e95b56964a"
+            ]
+        ]
+    },
+    {
+        "id": "31ca08031a117a78",
+        "type": "debug",
+        "z": "ed96ba97252200e7",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "a9f635e95b56964a",
+        "type": "json",
+        "z": "ed96ba97252200e7",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 650,
+        "y": 220,
+        "wires": [
+            [
+                "31ca08031a117a78"
+            ]
+        ]
+    },
+    {
+        "id": "c845786994195ab4",
+        "type": "websocket-listener",
+        "path": "ws://192.168.0.100:31768/ws/tdce/can-a/data",
+        "wholemsg": "false"
+    }
+]

@@ -1,0 +1,230 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "GPS",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "8c7c5ebe2d225d89",
+        "type": "websocket in",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "server": "69b3b27886e9c0bc",
+        "client": "",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "af47bc2760cc095d"
+            ]
+        ]
+    },
+    {
+        "id": "af47bc2760cc095d",
+        "type": "json",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "0a730c2969c9c942",
+                "1735903ba7f64177",
+                "30ae5e17a78c221a"
+            ]
+        ]
+    },
+    {
+        "id": "0a730c2969c9c942",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "get-needed-data",
+        "func": "let myJson = msg.payload; // Assuming msg.payload is a JSON object\n\nmyJson['lat'] = myJson['Latitude'];\ndelete myJson['Latitude'];\n\nmyJson['lon'] = myJson['Longitude'];\ndelete myJson['Longitude'];\n\nmsg.payload = myJson;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 220,
+        "wires": [
+            [
+                "b505bb3b35de3953"
+            ]
+        ]
+    },
+    {
+        "id": "b505bb3b35de3953",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "nameset",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "GPS map",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 220,
+        "wires": [
+            [
+                "bf75406560be36a5",
+                "042b15d3edddd63a"
+            ]
+        ]
+    },
+    {
+        "id": "791f7428a0e6ebec",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "Parameter setting",
+        "info": "Sets needed parameters for the map.",
+        "x": 640,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5cfd4d205eef56f7",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "Setting map coordinates",
+        "info": "Sets the GPS map coordinates that can be seen on the UI.\nhttp://192.168.0.100:1880/worldmap/\n\nIf only one marker should be displayed, keep the message inject as name.\nIf multiple markers should be used, set the change value to e.g. 'timestamp'.",
+        "x": 870,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1735903ba7f64177",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "write_db",
+        "func": "let myJson = msg.payload;\n\nmsg.topic = \"INSERT INTO gpslocation.gpsdata (latitude, longitude, time, altitude, speedKnots, speedMph, speedKmh, course, fix, numberOfsatellites, gpsFixAvailable, hdop) VALUES (\" + myJson['Latitude'] + \", \" + myJson['Longitude'] + \", '\" + myJson['Time'] + \"', \" + myJson['Altitude'] + \", \" + myJson['SpeedKnots'] + \", \" + myJson['SpeedMph'] + \", \" + myJson['SpeedKmh'] + \", \" + myJson['Course'] + \", \" + myJson['Fix'] + \", \" + myJson['NumberOfSatellites'] + \", \" + myJson['GpsFixAvailable'] + \", \" + myJson['Hdop'] + \");\";\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 320,
+        "wires": [
+            [
+                "f5d9f661bff1bf0c"
+            ]
+        ]
+    },
+    {
+        "id": "8581b1a4308bcfc8",
+        "type": "comment",
+        "z": "f6f2187d.f17ca8",
+        "name": "Database Insert",
+        "info": "",
+        "x": 680,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "f5d9f661bff1bf0c",
+        "type": "mysql",
+        "z": "f6f2187d.f17ca8",
+        "mydb": "57db05a323fc0519",
+        "name": "",
+        "x": 870,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf75406560be36a5",
+        "type": "worldmap",
+        "z": "f6f2187d.f17ca8",
+        "name": "GPS Map",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "OSMC",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "showruler": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1060,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "30ae5e17a78c221a",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "042b15d3edddd63a",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "69b3b27886e9c0bc",
+        "type": "websocket-listener",
+        "path": "ws://192.168.0.100:31768/ws/tdce/gps/data",
+        "wholemsg": "false"
+    },
+    {
+        "id": "57db05a323fc0519",
+        "type": "MySQLdatabase",
+        "name": "gpslocation",
+        "host": "192.168.0.100",
+        "port": "3306",
+        "db": "gpslocation",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]

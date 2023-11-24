@@ -1,0 +1,519 @@
+[
+    {
+        "id": "f33e8e48a6665aa4",
+        "type": "tab",
+        "label": "gps-raw",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f8a764046476eff4",
+        "type": "comment",
+        "z": "f33e8e48a6665aa4",
+        "name": "parsing objects",
+        "info": "",
+        "x": 1140,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e1e2c0c9332cb7d5",
+        "type": "websocket in",
+        "z": "f33e8e48a6665aa4",
+        "name": "",
+        "server": "122e93ff3dd1892f",
+        "client": "",
+        "x": 270,
+        "y": 340,
+        "wires": [
+            [
+                "8e44c084d431ebad"
+            ]
+        ]
+    },
+    {
+        "id": "908fed17515f2384",
+        "type": "websocket out",
+        "z": "f33e8e48a6665aa4",
+        "name": "",
+        "server": "122e93ff3dd1892f",
+        "client": "",
+        "x": 1290,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8e44c084d431ebad",
+        "type": "debug",
+        "z": "f33e8e48a6665aa4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "59ce80066cbe785d",
+        "type": "comment",
+        "z": "f33e8e48a6665aa4",
+        "name": "gets current NMEA message",
+        "info": "",
+        "x": 600,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "dbcaa74621985600",
+        "type": "exec",
+        "z": "f33e8e48a6665aa4",
+        "command": "cat /dev/ttymxc6",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": true,
+        "oldrc": false,
+        "name": "get-current-message",
+        "x": 560,
+        "y": 180,
+        "wires": [
+            [
+                "c919388e52d6e181"
+            ],
+            [
+                "27464d5e827d949a"
+            ],
+            [
+                "c5aef1b29bc895e9"
+            ]
+        ]
+    },
+    {
+        "id": "829485ab33881e60",
+        "type": "inject",
+        "z": "f33e8e48a6665aa4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "dbcaa74621985600"
+            ]
+        ]
+    },
+    {
+        "id": "2f193b594bbc99f9",
+        "type": "debug",
+        "z": "f33e8e48a6665aa4",
+        "name": "raw-output",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "574e4214b08c9430",
+        "type": "join",
+        "z": "f33e8e48a6665aa4",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 1090,
+        "y": 120,
+        "wires": [
+            [
+                "406c7f7e11a1c7d0"
+            ]
+        ]
+    },
+    {
+        "id": "c919388e52d6e181",
+        "type": "function",
+        "z": "f33e8e48a6665aa4",
+        "name": "check-if-complete",
+        "func": "if (msg.payload == \"\\r\\n\") \n    msg.complete = \"true\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 120,
+        "wires": [
+            [
+                "574e4214b08c9430"
+            ]
+        ]
+    },
+    {
+        "id": "406c7f7e11a1c7d0",
+        "type": "split",
+        "z": "f33e8e48a6665aa4",
+        "name": "",
+        "splt": "\\r\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1270,
+        "y": 120,
+        "wires": [
+            [
+                "e2e710df930c357c"
+            ]
+        ]
+    },
+    {
+        "id": "e2e710df930c357c",
+        "type": "function",
+        "z": "f33e8e48a6665aa4",
+        "name": "clean-output",
+        "func": "var check = msg.payload;\n\nif(check !==\"\"){\n\n    if(check.includes(\"\\r\\n\")){\n        var splitter = check.split(\"\\r\\n\");\n        msg.paylaod = splitter[0];\n    }\n\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 300,
+        "wires": [
+            [
+                "2f193b594bbc99f9",
+                "908fed17515f2384",
+                "fe53219ce52e87d9"
+            ]
+        ]
+    },
+    {
+        "id": "fe53219ce52e87d9",
+        "type": "function",
+        "z": "f33e8e48a6665aa4",
+        "name": "get-lat-long",
+        "func": "function convertLat(valu) {\n    //ddmm.m...\n    var degrees = valu.substring(0, 2);\n    var minutes = valu.substring(2);\n    minutes = minutes / 60;\n\n    var dd = minutes + parseFloat(degrees);\n    return dd;\n}\n\nfunction convertLong(valu) {\n    //dddmm.m...\n    var degrees = valu.substring(0, 3);\n    var minutes = valu.substring(3);\n    minutes = minutes / 60;\n\n    var dd = minutes + parseFloat(degrees);\n    return dd;\n}\n\n//TO DO: create object from certain type of NMEA message\nfunction createObject(id, lat, latdir, long, longDir){\n    var JSONObj = new Object();\n\n    //changes value format\n    var newLat = convertLat(lat);\n    var newLong = convertLong(long);\n\n    //setting global context\n    global.set(\"globalLat\", newLat); \n    global.set(\"globalLong\", newLong);  \n\n    JSONObj = {\"Header\":id,\"Latitude\":String(newLat),\"Latitude-Hemisphere\":latdir,\"Longitude\":String(newLong),\"Longitude-Hemisphere\":longDir};\n    return JSONObj;\n}\n\nvar text = msg.payload;\nvar splitter = text.substring(1); //removes $\nvar json;\nsplitter = splitter.split(\",\"); //creates array of values\n\n//check NMEA object header to acertain position \n//of longitude/latitude\n//TO DO: add more information to objects\nswitch(splitter[0]){\n    case \"GNRMC\":\n        //lat3, latD4, lon5, lonD6\n        json = createObject(splitter[0], splitter[3], splitter[4], splitter[5], splitter[6]);\n        break;\n    case \"GNGGA\":\n        //lat2, latD3, long4, lonD5\n        json = createObject(splitter[0], splitter[2], splitter[3], splitter[4], splitter[5]);\n        break;\n    case \"GNGLL\":\n        //lat1, latD2, lon3, lonD4\n        json = createObject(splitter[0], splitter[1], splitter[2], splitter[3], splitter[4]);\n        break;\n    default:\n        //GLGSV, GPGSV, GNGSA, GNVTG, GLGSV have no lat/long information\n        json = null;\n}\n\nmsg.payload = json;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 440,
+        "wires": [
+            [
+                "e82653b9ca64392b"
+            ]
+        ]
+    },
+    {
+        "id": "6d49c21dd3226d09",
+        "type": "debug",
+        "z": "f33e8e48a6665aa4",
+        "name": "longitude-latitude",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1470,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "27464d5e827d949a",
+        "type": "debug",
+        "z": "f33e8e48a6665aa4",
+        "name": "err",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "c5aef1b29bc895e9",
+        "type": "debug",
+        "z": "f33e8e48a6665aa4",
+        "name": "exit-code",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "fd42139f75e5049a",
+        "type": "comment",
+        "z": "f33e8e48a6665aa4",
+        "name": "about current implementation",
+        "info": "The current implementation gets only the\nlongitude/latitude information from NMEA\nobjects that carry this information\n(GNGLL, GNRMC, GNGGA).\n\nIt gets the Header, Longitude and Latitude\ninformation and stores it into a JSON object.\n\nFunction createObject() and switch from \nget-lat-long will need to be tweaked if\nmore data should be extracted from the objects.\n\nThe function check-not-null lets only GNGLL,\nGNRMC and GNGGA objects through to be shown on\nthe worldmap.",
+        "x": 1120,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "0699f418eff10810",
+        "type": "worldmap",
+        "z": "f33e8e48a6665aa4",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "OSMC",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "showruler": "false",
+        "allowFileDrop": "false",
+        "path": "/rawworldmap",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriDG,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1730,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "798989fbd2f7b907",
+        "type": "change",
+        "z": "f33e8e48a6665aa4",
+        "name": "nameset",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.name",
+                "pt": "msg",
+                "to": "currLoc",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1540,
+        "y": 600,
+        "wires": [
+            [
+                "0699f418eff10810",
+                "59b07370c3edd44c"
+            ]
+        ]
+    },
+    {
+        "id": "59b07370c3edd44c",
+        "type": "debug",
+        "z": "f33e8e48a6665aa4",
+        "name": "map objects",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1730,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ea8ed5e3c5036d77",
+        "type": "function",
+        "z": "f33e8e48a6665aa4",
+        "name": "prepare-json",
+        "func": "let myJson = msg.payload; // Assuming msg.payload is a JSON object\n\nmyJson['lat'] = myJson['Latitude'];\ndelete myJson['Latitude'];\n\nmyJson['lon'] = myJson['Longitude'];\ndelete myJson['Longitude'];\n\nmsg.payload = myJson;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1350,
+        "y": 600,
+        "wires": [
+            [
+                "798989fbd2f7b907"
+            ]
+        ]
+    },
+    {
+        "id": "707306579becc81a",
+        "type": "function",
+        "z": "f33e8e48a6665aa4",
+        "name": "check-global-long-lat",
+        "func": "var myArray = [];\nmyArray[0] = global.get(\"globalLat\") || null;\nmyArray[1] = global.get(\"globalLong\") || null;\nmsg.payload = myArray;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 480,
+        "wires": [
+            [
+                "2fb9e835a2cce439"
+            ]
+        ]
+    },
+    {
+        "id": "2fb9e835a2cce439",
+        "type": "debug",
+        "z": "f33e8e48a6665aa4",
+        "name": "globals",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "f1275eaaf86ac92a",
+        "type": "inject",
+        "z": "f33e8e48a6665aa4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 480,
+        "wires": [
+            [
+                "707306579becc81a"
+            ]
+        ]
+    },
+    {
+        "id": "4214e81b0639a839",
+        "type": "comment",
+        "z": "f33e8e48a6665aa4",
+        "name": "websocket receiver",
+        "info": "",
+        "x": 570,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "e82653b9ca64392b",
+        "type": "function",
+        "z": "f33e8e48a6665aa4",
+        "name": "check-not-null",
+        "func": "if(msg.payload != null)\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 440,
+        "wires": [
+            [
+                "6d49c21dd3226d09",
+                "ea8ed5e3c5036d77"
+            ]
+        ]
+    },
+    {
+        "id": "32a9070a9f81728c",
+        "type": "comment",
+        "z": "f33e8e48a6665aa4",
+        "name": "check variable state",
+        "info": "",
+        "x": 570,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "122e93ff3dd1892f",
+        "type": "websocket-listener",
+        "path": "ws://192.168.0.100:31768/ws/tdce/dio/states",
+        "wholemsg": "false"
+    }
+]

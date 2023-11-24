@@ -1,0 +1,63 @@
+[
+    {
+        "id": "3fd3fad3c2f7dd3d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d097ba632addb9d0",
+        "type": "websocket in",
+        "z": "3fd3fad3c2f7dd3d",
+        "name": "",
+        "server": "aa79b5f02b10bb62",
+        "client": "",
+        "x": 270,
+        "y": 220,
+        "wires": [
+            [
+                "799289cdfab53ce7"
+            ]
+        ]
+    },
+    {
+        "id": "1040e5fe9a2b0224",
+        "type": "debug",
+        "z": "3fd3fad3c2f7dd3d",
+        "name": "debug 35",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "799289cdfab53ce7",
+        "type": "json",
+        "z": "3fd3fad3c2f7dd3d",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 630,
+        "y": 220,
+        "wires": [
+            [
+                "1040e5fe9a2b0224"
+            ]
+        ]
+    },
+    {
+        "id": "aa79b5f02b10bb62",
+        "type": "websocket-listener",
+        "path": "ws://192.168.0.100:31768/ws/tdce/analog-inputs/value",
+        "wholemsg": "false"
+    }
+]

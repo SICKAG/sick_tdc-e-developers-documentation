@@ -1,0 +1,325 @@
+[
+    {
+        "id": "4a7d550c0cc4a42c",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8b15cebb4c4feb56",
+        "type": "group",
+        "z": "4a7d550c0cc4a42c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "8607170e0cfde599",
+            "0a85564739530ca5",
+            "39aa84ee24774016",
+            "5c2a92270e6ebff9",
+            "0c373813be647efd",
+            "780cc7d4568e3f03"
+        ],
+        "x": 254,
+        "y": 359,
+        "w": 852,
+        "h": 122
+    },
+    {
+        "id": "1cb4492e05eac4d2",
+        "type": "group",
+        "z": "4a7d550c0cc4a42c",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5b4dbacec408c8cc",
+            "73f3e747f1fea092",
+            "6a182bd0392ee3af",
+            "36f9628d31550e11",
+            "92fa7c9040e5f11b",
+            "a07d9f1bdc6b098e"
+        ],
+        "x": 254,
+        "y": 499,
+        "w": 852,
+        "h": 122
+    },
+    {
+        "id": "5b4dbacec408c8cc",
+        "type": "http request",
+        "z": "4a7d550c0cc4a42c",
+        "g": "1cb4492e05eac4d2",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100:59801/tdce/dio/GetState/DIO_B",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 690,
+        "y": 580,
+        "wires": [
+            [
+                "92fa7c9040e5f11b"
+            ]
+        ]
+    },
+    {
+        "id": "73f3e747f1fea092",
+        "type": "debug",
+        "z": "4a7d550c0cc4a42c",
+        "g": "1cb4492e05eac4d2",
+        "name": "debug 30",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6a182bd0392ee3af",
+        "type": "inject",
+        "z": "4a7d550c0cc4a42c",
+        "g": "1cb4492e05eac4d2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "token",
+        "payloadType": "flow",
+        "x": 360,
+        "y": 580,
+        "wires": [
+            [
+                "a07d9f1bdc6b098e"
+            ]
+        ]
+    },
+    {
+        "id": "36f9628d31550e11",
+        "type": "comment",
+        "z": "4a7d550c0cc4a42c",
+        "g": "1cb4492e05eac4d2",
+        "name": "Request DIO GET Example",
+        "info": "",
+        "x": 960,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "8607170e0cfde599",
+        "type": "http request",
+        "z": "4a7d550c0cc4a42c",
+        "g": "8b15cebb4c4feb56",
+        "name": "",
+        "method": "POST",
+        "ret": "obj",
+        "paytoqs": "body",
+        "url": "http://192.168.0.100:59801/user/Service/token",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/x-www-form-urlencoded"
+            }
+        ],
+        "x": 670,
+        "y": 440,
+        "wires": [
+            [
+                "5c2a92270e6ebff9"
+            ]
+        ]
+    },
+    {
+        "id": "0a85564739530ca5",
+        "type": "inject",
+        "z": "4a7d550c0cc4a42c",
+        "g": "8b15cebb4c4feb56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"password\":\"servicelevel\"}",
+        "payloadType": "str",
+        "x": 350,
+        "y": 440,
+        "wires": [
+            [
+                "39aa84ee24774016"
+            ]
+        ]
+    },
+    {
+        "id": "39aa84ee24774016",
+        "type": "function",
+        "z": "4a7d550c0cc4a42c",
+        "g": "8b15cebb4c4feb56",
+        "name": "function 7",
+        "func": "msg.payload = {'password':'servicelevel'};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 440,
+        "wires": [
+            [
+                "8607170e0cfde599"
+            ]
+        ]
+    },
+    {
+        "id": "5c2a92270e6ebff9",
+        "type": "function",
+        "z": "4a7d550c0cc4a42c",
+        "g": "8b15cebb4c4feb56",
+        "name": "function 8",
+        "func": "var a = msg.payload;\nflow.set(\"token\", a[\"token\"])\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 440,
+        "wires": [
+            [
+                "780cc7d4568e3f03"
+            ]
+        ]
+    },
+    {
+        "id": "0c373813be647efd",
+        "type": "comment",
+        "z": "4a7d550c0cc4a42c",
+        "g": "8b15cebb4c4feb56",
+        "name": "POST Authentication Token",
+        "info": "",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "92fa7c9040e5f11b",
+        "type": "json",
+        "z": "4a7d550c0cc4a42c",
+        "g": "1cb4492e05eac4d2",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 850,
+        "y": 580,
+        "wires": [
+            [
+                "73f3e747f1fea092"
+            ]
+        ]
+    },
+    {
+        "id": "a07d9f1bdc6b098e",
+        "type": "function",
+        "z": "4a7d550c0cc4a42c",
+        "g": "1cb4492e05eac4d2",
+        "name": "function 9",
+        "func": "var token = flow.get(\"token\");\n\nmsg.headers = {\n    \"authorization\": \"Bearer \" + String(token)\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "5b4dbacec408c8cc"
+            ]
+        ]
+    },
+    {
+        "id": "780cc7d4568e3f03",
+        "type": "debug",
+        "z": "4a7d550c0cc4a42c",
+        "g": "8b15cebb4c4feb56",
+        "name": "debug 34",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "dd5f28849b131422",
+        "type": "comment",
+        "z": "4a7d550c0cc4a42c",
+        "name": "USAGE",
+        "info": "Make sure to inject the POST \nAuthentication Token to set the token \nvalue. Afterwards, you can send requests\nto the server freely.\n\nIf the token times out, simply inject\nthe token once more. Happy coding!",
+        "x": 310,
+        "y": 340,
+        "wires": []
+    }
+]
