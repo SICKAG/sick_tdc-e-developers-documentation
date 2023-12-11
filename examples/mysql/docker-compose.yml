@@ -2,13 +2,13 @@ version: "2"
 
 services:
   mysql-db:
-    image: registry.mobilisis.com/elena.krzina/docs/mysql:latest
+    image: registry.mobilisis.com/user/docs/mysql:latest
     container_name: mysqldb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: TDC_arch2023
-      MYSQL_USER: root
-      MYSQL_PASSWORD: TDC_arch2023
+      MYSQL_ROOT_PASSWORD: PASSWORD
+      MYSQL_USER: username
+      MYSQL_PASSWORD: PASSWORD2
       TZ: Europe/Zagreb
     ports:
       - "3306:3306"
