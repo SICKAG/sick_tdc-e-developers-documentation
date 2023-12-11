@@ -49,7 +49,8 @@ type TokenResponse struct {
 
 func getToken() string {
 	tokenURL := "http://192.168.0.100:59801/user/Service/token"
-	password := "servicelevel"
+	/* set real password here */
+	password := "PASSWORD"
 
 	form := url.Values{}
 	form.Add("password", password)
@@ -78,6 +79,7 @@ func getToken() string {
 
 // connect to database
 func connect() (*sql.DB, error) {
+	// opens connection to database
 	db, err := sql.Open("mysql", "root:TDC_arch2023@tcp(192.168.0.100:3306)/analog_base")
 	if err != nil {
 		return nil, err
