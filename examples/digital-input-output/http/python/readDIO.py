@@ -15,7 +15,8 @@ class BearerAuth(requests.auth.AuthBase):
 # gets authentication token for http requests  
 def getToken():
     tokenUrl = "http://192.168.0.100:59801/user/Service/token"
-    password = "servicelevel"
+    # set real password here
+    password = "PASSWORD"
     myobj = {'password':password}
     headers = CaseInsensitiveDict()
     # setting header
