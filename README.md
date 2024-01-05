@@ -21,4 +21,4 @@ The Development Documentation is made to demonstrate development in deifferent k
 
 The Examples can be found on the first page of the documentation. It contains all kinds of examples on how to work with a specific service or interface, and is written in the programming languages Go, Node-RED, Python. Click [here](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/getting_started/examples) to go to the examples.
 
-Good luck!
+Happy coding!
