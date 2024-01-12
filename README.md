@@ -26,4 +26,3 @@ The Development Documentation is the part of the documentation that describes co
 The examples, divided into sections pertaining the interface the service the application uses, are meant to be a help for starting application development with said service. Most examples are made with either Python or Go, with an additional Node-RED application as an alternative.
 
 
-Happy coding!
