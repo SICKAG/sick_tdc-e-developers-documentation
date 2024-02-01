@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DioLED
-build_property.ProjectDir = C:\Users\tkrziel\source\repos\webDioLed\DioLED\
+build_property.ProjectDir = c:\Users\tkrziel\Projects\gitlab-code\sick_tdc-e-developers-documentation\tutorials\c-sharp-dio-led\DioLED\

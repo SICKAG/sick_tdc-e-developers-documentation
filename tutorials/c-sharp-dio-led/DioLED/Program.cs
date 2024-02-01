@@ -146,7 +146,8 @@ async Task<string> GetTokenAsync(HttpClient client)
 {
     var endp = new Uri("http://192.168.0.100:59801/user/Service/token");
     var dict = new Dictionary<string, string>();
-    dict.Add("password", "servicelevel");
+    // replace password
+    dict.Add("password", "XXX");
     var content = new FormUrlEncodedContent(dict);
     var response = await client.PostAsync(endp, content);
     return await response.Content.ReadAsStringAsync();

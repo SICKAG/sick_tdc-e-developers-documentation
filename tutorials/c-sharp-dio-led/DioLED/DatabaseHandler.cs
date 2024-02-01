@@ -20,7 +20,8 @@ namespace DioLED
             MySqlConnection conn = new MySqlConnection();
             try
             {
-                string connetionString = "server=192.168.0.100;uid=root;pwd=TDC_arch2023;database=diobase";
+                // replace server, uid, pwd and db 
+                string connetionString = "server=X;uid=X;pwd=X;database=X";
                 conn = new MySqlConnection(connetionString);
                 conn.Open();
                 insertData(conn);
@@ -30,7 +31,7 @@ namespace DioLED
                 //Console.WriteLine(ex.Message);
                 //if connection does not work, database doesn't exist
                 //create database and table
-                string createDbString = "server=127.0.0.1;uid=root;pwd=TDC_arch2023";
+                string createDbString = "server=X;uid=X;pwd=X";
                 MySqlConnection dbconn = new MySqlConnection(createDbString);
                 dbconn.Open();
 
