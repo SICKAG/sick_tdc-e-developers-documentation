@@ -1,0 +1,214 @@
+[
+    {
+        "id": "9ba16672e87acef2",
+        "type": "tab",
+        "label": "input-gps",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "65226ae550d345af",
+        "type": "comment",
+        "z": "9ba16672e87acef2",
+        "name": "receive input",
+        "info": "Configure port on which to listen to.\n\nCurrently uses port 45000. If another\nnode is to be used, configure the Node-RED\nstack so that it exposes said port.",
+        "x": 210,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "92951ec03f7b955a",
+        "type": "websocket in",
+        "z": "9ba16672e87acef2",
+        "name": "",
+        "server": "69b3b27886e9c0bc",
+        "client": "",
+        "x": 320,
+        "y": 400,
+        "wires": [
+            [
+                "9d419639b06bb572"
+            ]
+        ]
+    },
+    {
+        "id": "a5e090f4cbe5b886",
+        "type": "function",
+        "z": "9ba16672e87acef2",
+        "name": "add-gps-timestamp",
+        "func": "// for parsing JSON object\nvar gottenGps = flow.get(\"gps-loc\")\n\nif(typeof gottenGps === \"undefined\"){\n    gottenGps = { \"Latitude\": 0, \"Longitude\": 0 };\n}\nelse{\n    gottenGps = JSON.parse(gottenGps);\n}\n\n\n// generating new object\nconst timestamp = Date.now();\nconst date = new Date(timestamp);\n\nconst year = date.getFullYear();\nconst month = String(date.getMonth() + 1).padStart(2, '0');\nconst day = String(date.getDate()).padStart(2, '0');\nconst hours = String(date.getHours()).padStart(2, '0');\nconst minutes = String(date.getMinutes()).padStart(2, '0');\nconst seconds = String(date.getSeconds()).padStart(2, '0');\n\nconst formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\n\nvar data = msg.payload;\n\nconst obj = { \"GPS\": gottenGps, \"Timestamp\": formattedDate, \"RFID\": data.toString('latin1')};\nconst json = JSON.stringify(obj);\n\nmsg.payload = json;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "ba442701fc3d26f5",
+                "786d46eb5636f089",
+                "d09ab182b048a9d8"
+            ]
+        ]
+    },
+    {
+        "id": "9d419639b06bb572",
+        "type": "function",
+        "z": "9ba16672e87acef2",
+        "name": "get-curr-gps",
+        "func": "var curr_gps = msg.payload;\nflow.set(\"gps-loc\", curr_gps);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 400,
+        "wires": [
+            [
+                "cb44b6361d94836b"
+            ]
+        ]
+    },
+    {
+        "id": "cb44b6361d94836b",
+        "type": "debug",
+        "z": "9ba16672e87acef2",
+        "name": "show-current-gps",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ba442701fc3d26f5",
+        "type": "debug",
+        "z": "9ba16672e87acef2",
+        "name": "show-object",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "0939545f1b70d79a",
+        "type": "comment",
+        "z": "9ba16672e87acef2",
+        "name": "configure mqtt if needed",
+        "info": "",
+        "x": 780,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d09ab182b048a9d8",
+        "type": "mqtt out",
+        "z": "9ba16672e87acef2",
+        "d": true,
+        "name": "",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "",
+        "x": 830,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3c2e82319b944be1",
+        "type": "comment",
+        "z": "9ba16672e87acef2",
+        "name": "write to memory",
+        "info": "Currently appends each new JSON object \nto /mnt/data/mygps.json.\n\nIf another file wants to be specified, \nadd a volume of the path to the Node-RED\nstack.\n\nTurn off the node so as to \nnot fill up device space!",
+        "x": 780,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1e14dc222c548228",
+        "type": "comment",
+        "z": "9ba16672e87acef2",
+        "name": "gets gps",
+        "info": "",
+        "x": 440,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "786d46eb5636f089",
+        "type": "file",
+        "z": "9ba16672e87acef2",
+        "name": "write-file",
+        "filename": "/mnt/data/gps.json",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 800,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f5d7a1bd8643a8e2",
+        "type": "tcp in",
+        "z": "9ba16672e87acef2",
+        "name": "input",
+        "server": "server",
+        "host": "",
+        "port": "45000",
+        "datamode": "stream",
+        "datatype": "buffer",
+        "newline": "",
+        "topic": "input-gps",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "a5e090f4cbe5b886"
+            ]
+        ]
+    },
+    {
+        "id": "c291278f6f07cb48",
+        "type": "comment",
+        "z": "9ba16672e87acef2",
+        "name": "NOTES",
+        "info": "INPUT\n-----\nFor the input node, configure which\nport to listen to.\n\nCurrently uses port 45000. If another\nnode is to be used, configure the Node-RED\nstack so that it exposes said port.\n\nWRITE-FILE\n----------\nCurrently appends each new JSON object \nto /mnt/data/mygps.json.\n\nIf another file wants to be specified, \nadd a volume of the path to the Node-RED\nstack.\n\nTurn off the node so as to \nnot fill up device space!\n\nMQTT\n----\nConfigure MQTT if the service is needed.",
+        "x": 110,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "69b3b27886e9c0bc",
+        "type": "websocket-listener",
+        "path": "ws://192.168.0.100:31768/ws/tdce/gps/data",
+        "wholemsg": "false"
+    }
+]
