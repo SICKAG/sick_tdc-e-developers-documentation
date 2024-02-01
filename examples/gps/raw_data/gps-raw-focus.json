@@ -1,0 +1,221 @@
+[
+    {
+        "id": "1edc9b7e7bc40b0e",
+        "type": "tab",
+        "label": "Flow 8",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d78432df44a30e7e",
+        "type": "comment",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "parsing objects",
+        "info": "",
+        "x": 1020,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "85d4f57a1def1fc6",
+        "type": "comment",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "gets current NMEA message",
+        "info": "",
+        "x": 480,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "840d03e8a495a151",
+        "type": "exec",
+        "z": "1edc9b7e7bc40b0e",
+        "command": "cat /dev/ttymxc6",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": true,
+        "oldrc": false,
+        "name": "get-current-message",
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "ade440e455d67c9f"
+            ],
+            [
+                "93e97c4ef92aab4c"
+            ],
+            [
+                "d3169cfd5bdf90cf"
+            ]
+        ]
+    },
+    {
+        "id": "42315c1407481763",
+        "type": "inject",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 260,
+        "wires": [
+            [
+                "840d03e8a495a151"
+            ]
+        ]
+    },
+    {
+        "id": "f5ee7e8662fa03d4",
+        "type": "debug",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "raw-output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "04dd3258e3aa959d",
+        "type": "join",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 970,
+        "y": 200,
+        "wires": [
+            [
+                "fdd614f677a914b4"
+            ]
+        ]
+    },
+    {
+        "id": "ade440e455d67c9f",
+        "type": "function",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "check-if-complete",
+        "func": "if (msg.payload == \"\\r\\n\") \n    msg.complete = \"true\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "04dd3258e3aa959d"
+            ]
+        ]
+    },
+    {
+        "id": "fdd614f677a914b4",
+        "type": "split",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "",
+        "splt": "\\r\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 1150,
+        "y": 200,
+        "wires": [
+            [
+                "f28ec044501510d2"
+            ]
+        ]
+    },
+    {
+        "id": "f28ec044501510d2",
+        "type": "function",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "clean-output",
+        "func": "var check = msg.payload;\n\nif(check !==\"\"){\n\n    if(check.includes(\"\\r\\n\")){\n        var splitter = check.split(\"\\r\\n\");\n        msg.paylaod = splitter[0];\n    }\n\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 380,
+        "wires": [
+            [
+                "f5ee7e8662fa03d4"
+            ]
+        ]
+    },
+    {
+        "id": "93e97c4ef92aab4c",
+        "type": "debug",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "err",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d3169cfd5bdf90cf",
+        "type": "debug",
+        "z": "1edc9b7e7bc40b0e",
+        "name": "exit-code",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 320,
+        "wires": []
+    }
+]

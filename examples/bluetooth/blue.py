@@ -2,7 +2,10 @@ from bluepy.btle import Scanner, DefaultDelegate
 import sys
 
 # setting target MAC address
-target_mac = "e1:6b:1a:7e:c5:be"
+# change MAC address to find specific device to read from
+# current example made for temperature sensor
+
+target_mac = "XX:XX:XX:XX:XX:XX"
 
 def parseTemperature(scan):
     tempData = scan[1][2][4:]

@@ -6,8 +6,8 @@
         "authorizationEndpoint": "",
         "tokenEndpoint": "http://192.168.0.100/usermanager/connect/token",
         "redirectURL": "",
-        "username": "admin",
-        "password": "admin123X."
+        "username": "USERNAME",
+        "password": "PASSWORD"
     }
 ]
 }
