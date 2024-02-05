@@ -14,13 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let selectedOption = document.getElementById("dios").value;
 
         const xhr = new XMLHttpRequest();
-        if (selectedOption == "Python Web API") {
-            xhr.open("GET", "http://192.168.0.100:5239/api/v1/detection");
-        } else if (selectedOption == "C# Web API") {
-            xhr.open("GET", "http://192.168.0.100:5239/api/Dios");
-        } else if (selectedOption == "Node-RED Web API") {
-            xhr.open("GET", "http://192.168.0.100:1880/api/v1/detection");
-		} else if (selectedOption == "Go Web API") {
+        if (selectedOption == "Go Web API") {
             xhr.open("GET", "http://192.168.0.100:6001/api/v1/detection");
         } else if (selectedOption == "---") {
             document.getElementById("demo").innerHTML = "<p style='font-size:16px'>No data source selected.</p>";
