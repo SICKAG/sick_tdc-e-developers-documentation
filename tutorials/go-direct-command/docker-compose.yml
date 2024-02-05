@@ -1,0 +1,9 @@
+version: "2"
+services:
+  diodirect:
+    image: myapp:1.0.0
+    volumes:
+      - /sys/class/gpio/:/sys/class/gpio/
+    container_name: direct-go
+    privileged: true
+    restart: always
