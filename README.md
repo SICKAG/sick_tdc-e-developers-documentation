@@ -18,7 +18,9 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
 * Development Documentation
   * [Examples Using the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Using-the-Hardware-Interface)
   * [Examples Without the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Without-Using-the-Hardware-Interface)
+* [Interface Snippets](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/interface-snippets) 
 * [Examples](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/getting_started/examples)
+* [Tutorials](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/tutorials)
 
 ## TDC-E Configuration
 The TDC-E Configuration section describes how to configure parts of the TDC-E so as to be able to utilize it to its full extent. The configuration is split into two parts: network and interface configuration. Each one describes how to connect your TDC-E with the desired service.
@@ -29,7 +31,14 @@ Getting Started is a section which mostly focuses on deploying applications and 
 ## Development Documentation
 The Development Documentation is the part of the documentation that describes code examples split into two main categories: one that focuses on applications that are implemented to use TDC-E's hardware interface, while the other part focuses on describing applications that do not use it to access needed data. To that end, this section focuses on the hows and whys of the programming experience.
 
+## Interface Snippets
+The interface snippets, divided into sections pertaining the interface the service the application uses, are meant to be a help for starting application development with said service. Most examples are made with either Python or Go, with an additional Node-RED application as an alternative.
+
 ## Examples
-The examples, divided into sections pertaining the interface the service the application uses, are meant to be a help for starting application development with said service. Most examples are made with either Python or Go, with an additional Node-RED application as an alternative.
+Examples are entire programs that were written to be deployed on the TDC-E, stored here for reference and studying. They include various technologies and programming languages and are fully documented.
+
+## Tutorials
+Tutorial examples are codes and environments written specifially for users to be able to download and set up their environment with no further actions needed.
+
 
 
