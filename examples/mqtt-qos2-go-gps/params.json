@@ -1,8 +1,8 @@
 {
 "oauthConf": [
     {
-        "clientId": "device-manager",
-        "clientSecret": "1140b1c7-0644-49ee-8672-2d7bce196e7a",
+        "clientId": "CLIENT-ID",
+        "clientSecret": "CLIENT-SECRET",
         "authorizationEndpoint": "",
         "tokenEndpoint": "http://192.168.0.100/usermanager/connect/token",
         "redirectURL": ""
