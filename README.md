@@ -19,7 +19,8 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
   * [Snippets Using the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Using-the-Hardware-Interface)
   * [Snippets Without the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Without-Using-the-Hardware-Interface)
   * [Project Examples Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/%5BExamples%5D-Development-Documentation)
-* [Interface Snippets](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/interface-snippets) 
+* [Interface Snippets](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/interface-snippets)
+* [Examples](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/examples)
 * [Tutorials](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/tutorials)
 
 ## TDC-E Configuration
@@ -33,6 +34,9 @@ The Development Documentation is the part of the documentation that describes co
 
 ## Interface Snippets
 The interface snippets, divided into sections pertaining the interface the service the application uses, are meant to be a help for starting application development with said service. Most examples are made with either Python or Go, with an additional Node-RED application as an alternative. 
+
+## Examples
+The examples contain more complex project examples that showcase various interfaces, technologies and services to fulfill their functionalities.
 
 ## Tutorials
 Tutorial examples are codes and environments written specifially for users to be able to download and set up their environment with no further actions needed.
