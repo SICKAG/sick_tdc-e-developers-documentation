@@ -7,7 +7,14 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
 * TDC-E Configuration
   * [Network Configuration](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-Network-Configuration)
   * [Interface Container Configuration](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-Interface-Configuration)
-* [Getting Started](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started)
+* Getting Started
+  * [Environment Setup](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup)
+    * [Setting up Node-RED Application Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#1-setting-up-node-red)
+    * [Setting up Python Application Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment#2-setting-up-python-application-environment)
+    * [Setting up C# Application Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#3-setting-up-c-application-environment)
+    * [Setting up Go Application Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#4-setting-up-go-application-environment)
+    * [Setting up MySql Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#5-setting-up-mysql-environment)
+  * [Image Building and Composing](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Build-and-Compose)
 * Development Documentation
   * [Examples Using the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Using-the-Hardware-Interface)
   * [Examples Without the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Without-Using-the-Hardware-Interface)
