@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DIO detection</title>
+    <script src="js/detection.js"></script>
+    <style>  
+    body{
+        margin: 16px;
+        padding: 16px;
+    }
+
+    h1 { 
+        color: #111; 
+        font-family: 'Helvetica Neue', sans-serif; 
+        font-size: 64px; 
+        font-weight: bold; 
+        line-height: 1;
+        text-align: center; 
+    }
+
+    label, p{
+        color: #111; 
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 24px;  
+    }
+
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    .styled-table th, .styled-table td {
+        padding: 12px 15px;
+    }
+    .styled-table th{
+        background-color: #0090c9;
+        color: #ffffff;
+    }
+    .styled-table thead tr {
+        background-color: #0090c9;
+        color: #ffffff;
+        text-align: center;
+        font-family: 'Helvetica Neue', sans-serif; 
+    }
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tr:hover {
+        background-color: #0090c9;
+        color: #ffffff;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:nth-of-type(even):hover {
+        background-color: #0090c9;
+        color: #ffffff;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #0090c9;
+    }
+    .styled-table tbody tr.active-row {
+        color: #0090c9;
+    }
+
+
+    </style>
+</head>
+<body>
+    <h1>DIO Detection</h1>
+    <form id="myForm">
+        <label for="dios">Choose the data source:</label>
+            <select name="dios" id="dios" style="position: relative;width: 200px; font-size: 16px; padding:8px; margin-left: 8px;">
+                <option>---</option>
+                <option>Python Web API</option>
+                <option>C# Web API</option>
+                <option>Node-RED Web API</option>
+				<option>Go Web API</option>
+            </select>
+
+        <input type="submit" value="GET" id="sub" style="display: inline-block; border: none; font-size: 16px; font-family: 'Helvetica Neue', sans-serif; margin-left: 16px; line-height: 12px; border-radius: 4px; padding: 14px 24px; background: #0090c9; color: #fff;">
+        <button id="sortButton" style="display: inline-block; border: none; font-size: 16px; font-family: 'Helvetica Neue', sans-serif; margin-left: 16px; line-height: 12px; border-radius: 4px; padding: 14px 24px; background: #0090c9; color: #fff;">Sort Table</button>
+    </form>
+    <br><br>
+    <div id ="demo"></div>
+</body>
+</html>
