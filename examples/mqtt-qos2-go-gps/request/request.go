@@ -41,8 +41,8 @@ func setConfValues(jsonFile *os.File) (oauth2.Config, url.Values) {
 		},
 	}
 	/* Set username and password to device manager username&password */
-	username := "admin"
-	password := "admin123X."
+	username := "XXX"
+	password := "XXX"
 
 	data := url.Values{}
 	data.Set("grant_type", "password")
