@@ -1,0 +1,15 @@
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\bin\Debug\net7.0\ReadAIN.exe
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\bin\Debug\net7.0\ReadAIN.deps.json
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\bin\Debug\net7.0\ReadAIN.runtimeconfig.json
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\bin\Debug\net7.0\ReadAIN.dll
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\bin\Debug\net7.0\ReadAIN.pdb
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.csproj.AssemblyReference.cache
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.AssemblyInfoInputs.cache
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.AssemblyInfo.cs
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.csproj.CoreCompileInputs.cache
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.dll
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\refint\ReadAIN.dll
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.pdb
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ReadAIN.genruntimeconfig.cache
+C:\Users\tkrziel\source\repos\AINValRead\AINValRead\obj\Debug\net7.0\ref\ReadAIN.dll
