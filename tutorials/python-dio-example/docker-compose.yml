@@ -1,0 +1,9 @@
+version: "2"
+services:
+  dio-py:
+    image: registry.mobilisis.com/elena.krzina/docs/pydio:1.0.0
+    volumes:
+      - /sys/class/gpio/:/sys/class/gpio/
+    network_mode: "bridge"
+    privileged: true
+    restart: always
