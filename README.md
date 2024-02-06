@@ -16,8 +16,8 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
     * [Setting up MySql Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#5-setting-up-mysql-environment)
   * [Image Building and Composing](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Build-and-Compose)
 * Development Documentation
-  * [Snippets Using the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Using-the-Hardware-Interface)
-  * [Snippets Without the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Development-Documentation-%E2%80%90-Examples-Without-Using-the-Hardware-Interface)
+  * [Snippets Using the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/%5BHW-Interface%5D-Development-Documentation)
+  * [Snippets Without the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/%5BNo-HW-Interface%5D-Development-Documentation)
   * [Project Examples Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/%5BExamples%5D-Development-Documentation)
   * [Tutorials Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/%5BTutorials%5D-Development-Documentation)
 * [Interface Snippets](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/interface-snippets)
