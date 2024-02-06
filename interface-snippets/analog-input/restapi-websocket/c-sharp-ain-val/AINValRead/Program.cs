@@ -8,28 +8,11 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
 
-public class Analog
-{
-    public string AinName { get; set; }
-    public string State { get; set; }
-}
-
-public class AnalogVal
-{
-    public string AinName { get; set; }
-    public double Value { get; set; }
-}
-
 public class AnalogValueChange
 {
     public string AinName { get; set; }
     public double PreviousValue { get; set; }
     public double NewValue { get; set; }
-}
-
-public class TokenResponse
-{
-    public string Token { get; set; }
 }
 
 public class Program
