@@ -1,7 +1,0 @@
-version: "2"
-services:
-  cain:
-    image: myapp:1.0.0
-    privileged: true
-    restart: always
-    network_mode: "bridge"
