@@ -1,0 +1,352 @@
+[
+    {
+        "id": "653dfd052b6ea9ab",
+        "type": "tab",
+        "label": "send-receive-sms",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b70d3b6a052c714a",
+        "type": "group",
+        "z": "653dfd052b6ea9ab",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "082e460488fc67b4",
+            "3d47e0c382ba545b",
+            "53df1fc5910a15de",
+            "a65535bc4a31748d",
+            "5acc8937707b8d54",
+            "19e889382c5d0278",
+            "6c0c11a7c2baf040"
+        ],
+        "x": 54,
+        "y": 79,
+        "w": 1012,
+        "h": 122
+    },
+    {
+        "id": "1b5faf94bfc64a1d",
+        "type": "group",
+        "z": "653dfd052b6ea9ab",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "5a96e9544aa53845",
+            "e55cc2db6f86a8f7",
+            "9ac18b475b467238",
+            "8a942dcafcf8e7b3",
+            "6d74f4b495c1a4ae",
+            "138852d93d798d10"
+        ],
+        "x": 154,
+        "y": 219,
+        "w": 912,
+        "h": 122
+    },
+    {
+        "id": "082e460488fc67b4",
+        "type": "http request",
+        "z": "653dfd052b6ea9ab",
+        "g": "b70d3b6a052c714a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100/devicemanager/api/v1/networking/modem/ppp0/sms/messages",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 650,
+        "y": 160,
+        "wires": [
+            [
+                "19e889382c5d0278"
+            ]
+        ]
+    },
+    {
+        "id": "3d47e0c382ba545b",
+        "type": "debug",
+        "z": "653dfd052b6ea9ab",
+        "g": "b70d3b6a052c714a",
+        "name": "debug 42",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "53df1fc5910a15de",
+        "type": "inject",
+        "z": "653dfd052b6ea9ab",
+        "g": "b70d3b6a052c714a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "a65535bc4a31748d"
+            ]
+        ]
+    },
+    {
+        "id": "a65535bc4a31748d",
+        "type": "oauth2",
+        "z": "653dfd052b6ea9ab",
+        "g": "b70d3b6a052c714a",
+        "name": "",
+        "container": "oauth2Response",
+        "grant_type": "password",
+        "access_token_url": "/usermanager/connect/token",
+        "authorization_endpoint": "",
+        "redirect_uri": "/oauth2/redirect_uri",
+        "open_authentication": "",
+        "username": "admin",
+        "password": "admin123X.",
+        "client_id": "device-manager",
+        "client_secret": "1140b1c7-0644-49ee-8672-2d7bce196e7a",
+        "scope": "",
+        "resource": "",
+        "proxy": "",
+        "senderr": false,
+        "client_credentials_in_body": false,
+        "rejectUnauthorized": true,
+        "headers": {},
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "5acc8937707b8d54"
+            ]
+        ]
+    },
+    {
+        "id": "5acc8937707b8d54",
+        "type": "function",
+        "z": "653dfd052b6ea9ab",
+        "g": "b70d3b6a052c714a",
+        "name": "get-msgs",
+        "func": "var token = msg.oauth2Response.access_token;\n\nmsg.headers = {\n    \"authorization\": \"Bearer \" + token\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 160,
+        "wires": [
+            [
+                "082e460488fc67b4"
+            ]
+        ]
+    },
+    {
+        "id": "19e889382c5d0278",
+        "type": "json",
+        "z": "653dfd052b6ea9ab",
+        "g": "b70d3b6a052c714a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 810,
+        "y": 160,
+        "wires": [
+            [
+                "3d47e0c382ba545b"
+            ]
+        ]
+    },
+    {
+        "id": "5a96e9544aa53845",
+        "type": "http request",
+        "z": "653dfd052b6ea9ab",
+        "g": "1b5faf94bfc64a1d",
+        "name": "send-msg",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100/devicemanager/api/v1/networking/modem/ppp0/sms/messages",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "6d74f4b495c1a4ae"
+            ]
+        ]
+    },
+    {
+        "id": "e55cc2db6f86a8f7",
+        "type": "inject",
+        "z": "653dfd052b6ea9ab",
+        "g": "1b5faf94bfc64a1d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 300,
+        "wires": [
+            [
+                "9ac18b475b467238"
+            ]
+        ]
+    },
+    {
+        "id": "9ac18b475b467238",
+        "type": "oauth2",
+        "z": "653dfd052b6ea9ab",
+        "g": "1b5faf94bfc64a1d",
+        "name": "",
+        "container": "oauth2Response",
+        "grant_type": "password",
+        "access_token_url": "/usermanager/connect/token",
+        "authorization_endpoint": "",
+        "redirect_uri": "/oauth2/redirect_uri",
+        "open_authentication": "",
+        "username": "admin",
+        "password": "admin123X.",
+        "client_id": "device-manager",
+        "client_secret": "1140b1c7-0644-49ee-8672-2d7bce196e7a",
+        "scope": "",
+        "resource": "",
+        "proxy": "",
+        "senderr": false,
+        "client_credentials_in_body": false,
+        "rejectUnauthorized": true,
+        "headers": {},
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "8a942dcafcf8e7b3"
+            ]
+        ]
+    },
+    {
+        "id": "8a942dcafcf8e7b3",
+        "type": "function",
+        "z": "653dfd052b6ea9ab",
+        "g": "1b5faf94bfc64a1d",
+        "name": "set-msg-parameters",
+        "func": "var token = msg.oauth2Response.access_token;\n// insert phone number here\nvar phoneNumber = \"+XXXXXXXXXXXX\";\n\nmsg.headers = {\n    \"authorization\": \"Bearer \" + token,\n    \"Content-Type\": \"application/json\",\n    \"accept\": \"*/*\"\n};\nmsg.payload = {\n    \"phoneNumber\":phoneNumber,\n    \"content\":\"hello world\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 600,
+        "y": 300,
+        "wires": [
+            [
+                "5a96e9544aa53845"
+            ]
+        ]
+    },
+    {
+        "id": "6d74f4b495c1a4ae",
+        "type": "debug",
+        "z": "653dfd052b6ea9ab",
+        "g": "1b5faf94bfc64a1d",
+        "name": "debug 44",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6c0c11a7c2baf040",
+        "type": "comment",
+        "z": "653dfd052b6ea9ab",
+        "g": "b70d3b6a052c714a",
+        "name": "GET SMS",
+        "info": "",
+        "x": 980,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "138852d93d798d10",
+        "type": "comment",
+        "z": "653dfd052b6ea9ab",
+        "g": "1b5faf94bfc64a1d",
+        "name": "SEND SMS",
+        "info": "",
+        "x": 970,
+        "y": 260,
+        "wires": []
+    }
+]
