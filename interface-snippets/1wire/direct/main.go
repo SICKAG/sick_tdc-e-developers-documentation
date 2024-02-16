@@ -34,7 +34,7 @@ func execute(cmd string) {
 }
 
 func main() {
-	command := "cat /sys/bus/w1/devices/10-000803676b81/w1_slave"
+	command := "cat /sys/bus/w1/devices/10-00080366ca4a/w1_slave"
 	for {
 		execute(command)
 		time.Sleep(5 * time.Second)
