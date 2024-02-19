@@ -24,6 +24,7 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
 * [Interface Snippets](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/interface-snippets)
 * [Examples](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/examples)
 * [Tutorials](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/tutorials)
+* [Useful Links](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Useful-Links)
 
 ## TDC-E Configuration
 The TDC-E Configuration section describes how to configure parts of the TDC-E so as to be able to utilize it to its full extent. The configuration is split into two parts: network and interface configuration. Each one describes how to connect your TDC-E with the desired service.
@@ -43,5 +44,7 @@ The examples contain more complex project examples that showcase various interfa
 ## Tutorials
 Tutorial examples are codes and environments written specifially for users to be able to download and set up their environment with no further actions needed.
 
+## Useful Links
+Useful links contain relevant related articles regarding the TDC-E usage and configuration.
 
 
