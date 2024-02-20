@@ -7,7 +7,7 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
 * TDC-E Configuration
   * [L4M Configurations and Connections](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-L4M-Configuration-and-Connections)
   * [Network Configuration](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-Network-Configuration)
-  * [Interface Container Configuration](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-Interface-Configuration)
+  * [Interface Configuration](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-Interface-Configuration)
 * Getting Started
   * [Environment Setup](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup)
     * [Setting up Node-RED Application Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#1-setting-up-node-red)
