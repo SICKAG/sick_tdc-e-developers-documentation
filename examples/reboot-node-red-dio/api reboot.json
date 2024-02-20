@@ -1,0 +1,172 @@
+[
+    {
+        "id": "dcde537aac3db0ab",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f5049385bd95b5d1",
+        "type": "group",
+        "z": "dcde537aac3db0ab",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "58b9063ee387dd1d",
+            "f7a2c1cf5664f1d3",
+            "0b99dd78a111249c",
+            "e36f8ca348d3ad44",
+            "4f338e2f003750a9",
+            "b0861fbb1bad570b"
+        ],
+        "x": 174,
+        "y": 379,
+        "w": 912,
+        "h": 142
+    },
+    {
+        "id": "58b9063ee387dd1d",
+        "type": "debug",
+        "z": "dcde537aac3db0ab",
+        "g": "f5049385bd95b5d1",
+        "name": "debug 45",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "f7a2c1cf5664f1d3",
+        "type": "http request",
+        "z": "dcde537aac3db0ab",
+        "g": "f5049385bd95b5d1",
+        "name": "send-msg",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100/devicemanager/api/v1/system/power",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 820,
+        "y": 480,
+        "wires": [
+            [
+                "58b9063ee387dd1d"
+            ]
+        ]
+    },
+    {
+        "id": "0b99dd78a111249c",
+        "type": "function",
+        "z": "dcde537aac3db0ab",
+        "g": "f5049385bd95b5d1",
+        "name": "set-msg-parameters",
+        "func": "var token = msg.oauth2Response.access_token;\n\nmsg.headers = {\n    \"authorization\": \"Bearer \" + token,\n    \"Content-Type\": \"application/json\",\n    \"accept\": \"application/json\"\n};\nmsg.payload = {\n    \"operation\":\"reboot\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 480,
+        "wires": [
+            [
+                "f7a2c1cf5664f1d3"
+            ]
+        ]
+    },
+    {
+        "id": "e36f8ca348d3ad44",
+        "type": "inject",
+        "z": "dcde537aac3db0ab",
+        "g": "f5049385bd95b5d1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 480,
+        "wires": [
+            [
+                "b0861fbb1bad570b"
+            ]
+        ]
+    },
+    {
+        "id": "4f338e2f003750a9",
+        "type": "comment",
+        "z": "dcde537aac3db0ab",
+        "g": "f5049385bd95b5d1",
+        "name": "API REBOOT",
+        "info": "",
+        "x": 270,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "b0861fbb1bad570b",
+        "type": "oauth2",
+        "z": "dcde537aac3db0ab",
+        "g": "f5049385bd95b5d1",
+        "name": "",
+        "container": "oauth2Response",
+        "grant_type": "password",
+        "access_token_url": "http://192.168.0.100/usermanager/connect/token",
+        "authorization_endpoint": "",
+        "redirect_uri": "/oauth2/redirect_uri",
+        "open_authentication": "",
+        "username": "admin",
+        "password": "admin123X.",
+        "client_id": "device-manager",
+        "client_secret": "1140b1c7-0644-49ee-8672-2d7bce196e7a",
+        "scope": "",
+        "resource": "",
+        "state": "",
+        "proxy": "",
+        "senderr": false,
+        "client_credentials_in_body": false,
+        "rejectUnauthorized": false,
+        "headers": {},
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "0b99dd78a111249c"
+            ]
+        ]
+    }
+]
