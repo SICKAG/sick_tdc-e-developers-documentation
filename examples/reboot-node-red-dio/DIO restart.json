@@ -1,0 +1,283 @@
+[
+    {
+        "id": "ea24e37b8028a15f",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fe52081a2efb9352",
+        "type": "group",
+        "z": "ea24e37b8028a15f",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "ec48940ceeab14f6",
+            "3ca73e53d93c5db6",
+            "bc302a825cef8184",
+            "a6fa9b9cd631b649",
+            "1cca96a622ca997a",
+            "0d5493a2c0bd2658",
+            "687ff6b16574f6c7",
+            "61e08fe71b83fdea",
+            "cacd2c45da33170c",
+            "8844702962d1a15f",
+            "2e298b3030f9a739"
+        ],
+        "x": 74,
+        "y": 79,
+        "w": 1072,
+        "h": 402
+    },
+    {
+        "id": "ec48940ceeab14f6",
+        "type": "debug",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "debug 46",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "3ca73e53d93c5db6",
+        "type": "http request",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "send-msg",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100/devicemanager/api/v1/system/power",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 880,
+        "y": 440,
+        "wires": [
+            [
+                "ec48940ceeab14f6"
+            ]
+        ]
+    },
+    {
+        "id": "bc302a825cef8184",
+        "type": "function",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "set-msg-parameters",
+        "func": "var token = msg.oauth2Response.access_token;\n\nmsg.headers = {\n    \"authorization\": \"Bearer \" + token,\n    \"Content-Type\": \"application/json\",\n    \"accept\": \"application/json\"\n};\nmsg.payload = {\n    \"operation\":\"reboot\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 440,
+        "wires": [
+            [
+                "3ca73e53d93c5db6"
+            ]
+        ]
+    },
+    {
+        "id": "a6fa9b9cd631b649",
+        "type": "comment",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "API DIO REBOOT",
+        "info": "",
+        "x": 190,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1cca96a622ca997a",
+        "type": "oauth2",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "",
+        "container": "oauth2Response",
+        "grant_type": "password",
+        "access_token_url": "http://192.168.0.100/usermanager/connect/token",
+        "authorization_endpoint": "",
+        "redirect_uri": "/oauth2/redirect_uri",
+        "open_authentication": "",
+        "username": "admin",
+        "password": "admin123X.",
+        "client_id": "device-manager",
+        "client_secret": "1140b1c7-0644-49ee-8672-2d7bce196e7a",
+        "scope": "",
+        "resource": "",
+        "state": "",
+        "proxy": "",
+        "senderr": false,
+        "client_credentials_in_body": false,
+        "rejectUnauthorized": false,
+        "headers": {},
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "bc302a825cef8184"
+            ]
+        ]
+    },
+    {
+        "id": "0d5493a2c0bd2658",
+        "type": "function",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "CheckingState",
+        "func": "var state = context.get(\"globalstate\") || \"OFF\";\n\nif (msg.payload == \"1\" && state == \"OFF\") {\n    context.set(\"globalstate\", \"ON\");\n    msg.payload = \"yes\";\n}\nelse{\n    msg.payload = \"no\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "687ff6b16574f6c7"
+            ]
+        ]
+    },
+    {
+        "id": "687ff6b16574f6c7",
+        "type": "function",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "restartCondition",
+        "func": "if(msg.payload === \"yes\"){\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "1cca96a622ca997a"
+            ]
+        ]
+    },
+    {
+        "id": "61e08fe71b83fdea",
+        "type": "debug",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "debug 47",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "cacd2c45da33170c",
+        "type": "exec",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "command": "cat /sys/class/gpio/gpio496/value",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "valRead",
+        "x": 360,
+        "y": 260,
+        "wires": [
+            [
+                "61e08fe71b83fdea",
+                "2e298b3030f9a739"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8844702962d1a15f",
+        "type": "inject",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "cacd2c45da33170c"
+            ]
+        ]
+    },
+    {
+        "id": "2e298b3030f9a739",
+        "type": "function",
+        "z": "ea24e37b8028a15f",
+        "g": "fe52081a2efb9352",
+        "name": "parseMsg",
+        "func": "var val = msg.payload;\nmsg.payload = val.charAt(0);\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [
+                "0d5493a2c0bd2658"
+            ]
+        ]
+    }
+]
