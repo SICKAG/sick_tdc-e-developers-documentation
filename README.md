@@ -15,7 +15,7 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
     * [Setting up C# Application Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#3-setting-up-c-application-environment)
     * [Setting up Go Application Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#4-setting-up-go-application-environment)
     * [Setting up MySql Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#5-setting-up-mysql-environment)
-    * [Setting up MQTT (Mosquitto) Environment](ttps://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#6-setting-up-mosquitto-environment)
+    * [Setting up MQTT (Mosquitto) Environment](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Environment-Setup#6-setting-up-mosquitto-environment)
   * [Image Building and Composing](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Getting-Started-%E2%80%90-Build-and-Compose)
 * Development Documentation
   * [Snippets Using the Hardware Interface](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/%5BHW-Interface%5D-Development-Documentation)
