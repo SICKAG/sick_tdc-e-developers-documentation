@@ -1,5 +1,4 @@
-docker build -t registry.mobilisis.com/user/docs/mysql .
-docker push registry.mobilisis.com/user/docs/mysql
-docker save -o mysql.tar registry.mobilisis.com/user/docs/mysql
+docker build -t mysql-img .
+docker save -o mysql.tar mysql-img
 
 timeout /t 30
