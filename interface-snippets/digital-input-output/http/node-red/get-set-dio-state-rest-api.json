@@ -133,7 +133,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "password=Servicelevel123X.",
+        "payload": "password=PASSWORD",
         "payloadType": "str",
         "x": 180,
         "y": 180,
