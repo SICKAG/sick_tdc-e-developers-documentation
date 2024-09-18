@@ -1,0 +1,680 @@
+[
+    {
+        "id": "9b1ea85c9c9345a8",
+        "type": "tab",
+        "label": "dio-device",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "00d7a70f91ac2d1a",
+        "type": "group",
+        "z": "9b1ea85c9c9345a8",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "b87d999bd12414e3",
+            "c8d63d4af5016d85",
+            "af80eb9a8fd4ad3d",
+            "49d94b0c1f860c07",
+            "7897acb6e0cc9525",
+            "6acc20a98d10a345",
+            "277522e96e5cd2d9",
+            "f5ea44d7a99d0401"
+        ],
+        "x": 74,
+        "y": 139,
+        "w": 872,
+        "h": 142
+    },
+    {
+        "id": "b31cf5172c6ee5c3",
+        "type": "group",
+        "z": "9b1ea85c9c9345a8",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "284b1a1b6b832ade",
+            "0192b1317a086452",
+            "8feb472054629cb6",
+            "71494d93ed7eb229",
+            "918f79868f5f3704",
+            "63fe47a2d5282e8b"
+        ],
+        "x": 74,
+        "y": 299,
+        "w": 752,
+        "h": 162
+    },
+    {
+        "id": "27d79509f4584a4b",
+        "type": "group",
+        "z": "9b1ea85c9c9345a8",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "15c2eaf127c37d90",
+            "d84491a023a594bc",
+            "d16c42fa554f7d7c",
+            "629ef5d4998384eb",
+            "b530c7fd2251a4a9",
+            "26fbe39eba50b8ce"
+        ],
+        "x": 994,
+        "y": 119,
+        "w": 792,
+        "h": 162
+    },
+    {
+        "id": "eff1f2527799f79c",
+        "type": "group",
+        "z": "9b1ea85c9c9345a8",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "1b633aa0cb4ab3e3",
+            "1b28684aceb582dc",
+            "e623b53265104142",
+            "eac9e739e34f21d4",
+            "768d3c0437e716e9",
+            "e495539d4a409d2f"
+        ],
+        "x": 994,
+        "y": 299,
+        "w": 792,
+        "h": 162
+    },
+    {
+        "id": "b87d999bd12414e3",
+        "type": "inject",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "token-gen",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "password=Servicelevel123X.",
+        "payloadType": "str",
+        "x": 180,
+        "y": 180,
+        "wires": [
+            [
+                "c8d63d4af5016d85"
+            ]
+        ]
+    },
+    {
+        "id": "c8d63d4af5016d85",
+        "type": "http request",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "http://192.168.0.100:59801/user/Service/token",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/x-www-form-urlencoded"
+            }
+        ],
+        "x": 370,
+        "y": 180,
+        "wires": [
+            [
+                "49d94b0c1f860c07"
+            ]
+        ]
+    },
+    {
+        "id": "af80eb9a8fd4ad3d",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "debug 45",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "49d94b0c1f860c07",
+        "type": "function",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "set-token-from-request",
+        "func": "var token = msg.payload;\nflow.set(\"token\", token);\n\nmsg.payload = token;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 180,
+        "wires": [
+            [
+                "af80eb9a8fd4ad3d"
+            ]
+        ]
+    },
+    {
+        "id": "7897acb6e0cc9525",
+        "type": "inject",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "check-token",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "6acc20a98d10a345"
+            ]
+        ]
+    },
+    {
+        "id": "6acc20a98d10a345",
+        "type": "function",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "print token",
+        "func": "var token = flow.get(\"token\");\nmsg.payload = token;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "277522e96e5cd2d9"
+            ]
+        ]
+    },
+    {
+        "id": "277522e96e5cd2d9",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "debug 46",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "f5ea44d7a99d0401",
+        "type": "comment",
+        "z": "9b1ea85c9c9345a8",
+        "g": "00d7a70f91ac2d1a",
+        "name": "token auth",
+        "info": "",
+        "x": 820,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "284b1a1b6b832ade",
+        "type": "comment",
+        "z": "9b1ea85c9c9345a8",
+        "g": "b31cf5172c6ee5c3",
+        "name": "get-state",
+        "info": "",
+        "x": 180,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "0192b1317a086452",
+        "type": "inject",
+        "z": "9b1ea85c9c9345a8",
+        "g": "b31cf5172c6ee5c3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "71494d93ed7eb229"
+            ]
+        ]
+    },
+    {
+        "id": "8feb472054629cb6",
+        "type": "http request",
+        "z": "9b1ea85c9c9345a8",
+        "g": "b31cf5172c6ee5c3",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100:59801/tdce/dio/GetValue/DIO_A",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "918f79868f5f3704"
+            ]
+        ]
+    },
+    {
+        "id": "71494d93ed7eb229",
+        "type": "function",
+        "z": "9b1ea85c9c9345a8",
+        "g": "b31cf5172c6ee5c3",
+        "name": "get DIO A state",
+        "func": "var token = flow.get(\"token\");\nvar headers = {\n    \"authorization\": \"Bearer \" + token\n};\nmsg.headers = headers;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "8feb472054629cb6",
+                "63fe47a2d5282e8b"
+            ]
+        ]
+    },
+    {
+        "id": "918f79868f5f3704",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "b31cf5172c6ee5c3",
+        "name": "debug 47",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "63fe47a2d5282e8b",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "b31cf5172c6ee5c3",
+        "name": "debug 48",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "15c2eaf127c37d90",
+        "type": "comment",
+        "z": "9b1ea85c9c9345a8",
+        "g": "27d79509f4584a4b",
+        "name": "set-state ON",
+        "info": "",
+        "x": 1110,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "d84491a023a594bc",
+        "type": "inject",
+        "z": "9b1ea85c9c9345a8",
+        "g": "27d79509f4584a4b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1100,
+        "y": 240,
+        "wires": [
+            [
+                "629ef5d4998384eb"
+            ]
+        ]
+    },
+    {
+        "id": "d16c42fa554f7d7c",
+        "type": "http request",
+        "z": "9b1ea85c9c9345a8",
+        "g": "27d79509f4584a4b",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100:59801/tdce/dio/SetValues",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 1530,
+        "y": 240,
+        "wires": [
+            [
+                "b530c7fd2251a4a9"
+            ]
+        ]
+    },
+    {
+        "id": "629ef5d4998384eb",
+        "type": "function",
+        "z": "9b1ea85c9c9345a8",
+        "g": "27d79509f4584a4b",
+        "name": "set DIO A state ON",
+        "func": "var token = flow.get(\"token\");\nvar headers = {\n    \"authorization\": \"Bearer \" + token\n};\nmsg.headers = headers;\n// state on\nmsg.payload = [{ \"DioName\": \"DIO_A\", \"Value\": 1, \"Direction\": \"Output\" }]\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1290,
+        "y": 240,
+        "wires": [
+            [
+                "d16c42fa554f7d7c",
+                "26fbe39eba50b8ce"
+            ]
+        ]
+    },
+    {
+        "id": "b530c7fd2251a4a9",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "27d79509f4584a4b",
+        "name": "debug 49",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1680,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "26fbe39eba50b8ce",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "27d79509f4584a4b",
+        "name": "debug 50",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "1b633aa0cb4ab3e3",
+        "type": "comment",
+        "z": "9b1ea85c9c9345a8",
+        "g": "eff1f2527799f79c",
+        "name": "set-state OFF",
+        "info": "",
+        "x": 1090,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "1b28684aceb582dc",
+        "type": "inject",
+        "z": "9b1ea85c9c9345a8",
+        "g": "eff1f2527799f79c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1100,
+        "y": 420,
+        "wires": [
+            [
+                "e623b53265104142"
+            ]
+        ]
+    },
+    {
+        "id": "e623b53265104142",
+        "type": "function",
+        "z": "9b1ea85c9c9345a8",
+        "g": "eff1f2527799f79c",
+        "name": "set DIO A state OFF",
+        "func": "var token = flow.get(\"token\");\nvar headers = {\n    \"authorization\": \"Bearer \" + token\n};\nmsg.headers = headers;\n// state on\nmsg.payload = [{ \"DioName\": \"DIO_A\", \"Value\": 0, \"Direction\": \"Output\" }]\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1300,
+        "y": 420,
+        "wires": [
+            [
+                "eac9e739e34f21d4",
+                "768d3c0437e716e9"
+            ]
+        ]
+    },
+    {
+        "id": "eac9e739e34f21d4",
+        "type": "http request",
+        "z": "9b1ea85c9c9345a8",
+        "g": "eff1f2527799f79c",
+        "name": "",
+        "method": "PUT",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://192.168.0.100:59801/tdce/dio/SetValues",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 1530,
+        "y": 420,
+        "wires": [
+            [
+                "e495539d4a409d2f"
+            ]
+        ]
+    },
+    {
+        "id": "768d3c0437e716e9",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "eff1f2527799f79c",
+        "name": "debug 54",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1560,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e495539d4a409d2f",
+        "type": "debug",
+        "z": "9b1ea85c9c9345a8",
+        "g": "eff1f2527799f79c",
+        "name": "debug 55",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1680,
+        "y": 420,
+        "wires": []
+    }
+]
