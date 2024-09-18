@@ -52,4 +52,6 @@ Useful links contain relevant related articles regarding the TDC-E usage and con
 ## Docs
 Useful documents for additional TDC-E support.
 
+
+
 _**NOTE:** Newer versions of L4M might require minor changes in application logic. Applications refactored for recent releases of the TDC-E device firmware are named in `appname_version_X_X` format, where X is the version of the firmware._
