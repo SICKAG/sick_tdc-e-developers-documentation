@@ -1,0 +1,269 @@
+[
+    {
+        "id": "773958437bc5a709",
+        "type": "tab",
+        "label": "RS232-MQTT-example",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3ca0d6ec6b1e59f2",
+        "type": "group",
+        "z": "773958437bc5a709",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "63e234405937540f",
+            "153184c64e15ea61",
+            "f78dd4ce053934f8"
+        ],
+        "x": 54,
+        "y": 339,
+        "w": 412,
+        "h": 142
+    },
+    {
+        "id": "c1ac9e4c7c4a4fe9",
+        "type": "exec",
+        "z": "773958437bc5a709",
+        "command": "cat /dev/ttymxc5",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 360,
+        "y": 200,
+        "wires": [
+            [
+                "8dbece584dd1208a"
+            ],
+            [
+                "33ff8ae09927d1f2"
+            ],
+            [
+                "801769d2cf9001eb"
+            ]
+        ]
+    },
+    {
+        "id": "d627208b0cfb11e3",
+        "type": "debug",
+        "z": "773958437bc5a709",
+        "name": "debug 56",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "33ff8ae09927d1f2",
+        "type": "debug",
+        "z": "773958437bc5a709",
+        "name": "err",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "801769d2cf9001eb",
+        "type": "debug",
+        "z": "773958437bc5a709",
+        "name": "return code",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ec7c2fbeac923a35",
+        "type": "inject",
+        "z": "773958437bc5a709",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "c1ac9e4c7c4a4fe9"
+            ]
+        ]
+    },
+    {
+        "id": "8dbece584dd1208a",
+        "type": "function",
+        "z": "773958437bc5a709",
+        "name": "clean-msg",
+        "func": "// cleans message from whitespaces and check whether input is larger than 1\n\nlet cleanedPayload = msg.payload.replace(/[\\r\\n]+/g, '').trim();\n\nif (cleanedPayload !== \"\" && cleanedPayload.length > 1) {\n    msg.payload = cleanedPayload;\n    return msg;\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "d627208b0cfb11e3",
+                "e20bfb725048eac7"
+            ]
+        ]
+    },
+    {
+        "id": "4485c2600895c4d4",
+        "type": "comment",
+        "z": "773958437bc5a709",
+        "name": "flush port if duplicate values",
+        "info": "",
+        "x": 360,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "63e234405937540f",
+        "type": "mqtt in",
+        "z": "773958437bc5a709",
+        "g": "3ca0d6ec6b1e59f2",
+        "name": "",
+        "topic": "rs232",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "7d3bc53baabf712b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "153184c64e15ea61"
+            ]
+        ]
+    },
+    {
+        "id": "153184c64e15ea61",
+        "type": "debug",
+        "z": "773958437bc5a709",
+        "g": "3ca0d6ec6b1e59f2",
+        "name": "result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 270,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "e20bfb725048eac7",
+        "type": "mqtt out",
+        "z": "773958437bc5a709",
+        "name": "rs-mosquitto",
+        "topic": "rs232",
+        "qos": "0",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "7d3bc53baabf712b",
+        "x": 970,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "f78dd4ce053934f8",
+        "type": "comment",
+        "z": "773958437bc5a709",
+        "g": "3ca0d6ec6b1e59f2",
+        "name": "MQTT broker listener",
+        "info": "",
+        "x": 340,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7d3bc53baabf712b",
+        "type": "mqtt-broker",
+        "name": "mymosquitto",
+        "broker": "192.168.0.100",
+        "port": "1883",
+        "clientid": "node-red-user",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
