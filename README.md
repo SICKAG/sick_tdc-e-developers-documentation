@@ -2,7 +2,7 @@
 
 ## Welcome!
 
-This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki), aimed at customers, users and developers alike to explore the TDC-E's options, capabilities and programmability. We want the user to get to know the TDC-E device so that its wide variety of options could be used to their full extent. To that end, the Developer's Documentation servers as a guide which contains the following file structure:
+This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki), aimed at customers, users and developers alike to explore the TDC-E's options, capabilities and programmability. We want the user to get to know the TDC-E device so that its wide variety of options could be used to their full extent. To that end, the Developer's Documentation serves as a guide which contains the following file structure:
 
 * TDC-E Configuration
   * [L4M Configurations and Connections](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-L4M-Configuration-and-Connections)
