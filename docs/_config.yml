@@ -1,0 +1,28 @@
+# GitHub Pages configuration for TDC-E Documentation
+title: TDC-E Developer Documentation
+description: Developer documentation for TDC-E devices
+theme: jekyll-theme-cayman
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Include/exclude
+include:
+  - "tdc-e-base"
+  - "tdc-e-base/docs"
+  - "tdc-e-base/static"
+
+exclude:
+  - .git
+  - .gitignore
+  - README.md
+
+# Collections (optional)
+collections_dir: tdc-e-base
+
+# Base URL (update if using a project page)
+# baseurl: "/sick_tdc-e-developers-documentation"
+# url: "https://sickag.github.io"
