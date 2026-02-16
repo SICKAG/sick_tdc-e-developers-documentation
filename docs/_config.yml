@@ -24,5 +24,5 @@ exclude:
 collections_dir: tdc-e-base
 
 # Base URL (update if using a project page)
-# baseurl: "/sick_tdc-e-developers-documentation"
-# url: "https://sickag.github.io"
+baseurl: "/sick_tdc-e-developers-documentation"
+url: "https://sickag.github.io"

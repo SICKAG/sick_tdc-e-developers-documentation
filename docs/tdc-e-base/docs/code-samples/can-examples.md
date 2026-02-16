@@ -18,7 +18,7 @@ In this section, setting up the CAN device is discussed. Using the dedicated CAN
  - Termination
  - Interface Mapping (namespace)
 
-In the following sections, setting up the transceiver power, termination, and CAN namespace is discussed. Additionally, reading CAN statistics is described. This is done using the CAN HAL Service `hal.can.Can`. Examples using `grpcurl` are given below. For more information about using gRPC services, refer to [gRPC Usage](/getting-started/grpc-usage).
+In the following sections, setting up the transceiver power, termination, and CAN namespace is discussed. Additionally, reading CAN statistics is described. This is done using the CAN HAL Service `hal.can.Can`. Examples using `grpcurl` are given below. For more information about using gRPC services, refer to [gRPC Usage](../getting-started/grpc-usage).
 
 ### 1.1. Setting Up CAN Transceiver Power
 
@@ -423,7 +423,7 @@ CMD ["./can"]
 
 #### 2.2.3. Deploying to Portainer
 
-To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](/getting-started/working-with-docker#3-working-with-portainer). As soon as the image and container are set up, the application starts running.
+To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](../getting-started/working-with-docker#3-working-with-portainer). As soon as the image and container are set up, the application starts running.
 
 ## 3. NodeRED Example
 

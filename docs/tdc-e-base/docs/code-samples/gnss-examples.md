@@ -31,7 +31,7 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 protoc --go_out=pkg/pb --go-grpc_out=pkg/pb pkg/gnss.proto
 ```
 
-This installs needed tools, and generates files for the gRPC service. The application also requires an access token to connect to the gRPC service the TDC-E provides. Please refer to [gRPC Usage](/getting-started/grpc-usage) for instructions on how to generate an access token for the TDC-E.
+This installs needed tools, and generates files for the gRPC service. The application also requires an access token to connect to the gRPC service the TDC-E provides. Please refer to [gRPC Usage](../getting-started/grpc-usage) for instructions on how to generate an access token for the TDC-E.
 
 Once you've obtained the token, navigate to `grpc-gnss/pkg/auth/token.json`. Paste your generated token in the `access_token` field. This token is then used to create a `context` which will be used to create gRPC calls.
 
@@ -225,7 +225,7 @@ message GnssConstellations {
 
 </details>
 
-To get the GNSS device status, use `grpcurl`, which is an open-source utility for accessing gRPC services via the shell. For help setting up the `grpcurl` command, refer to [gRPC Usage](/getting-started/grpc-usage).
+To get the GNSS device status, use `grpcurl`, which is an open-source utility for accessing gRPC services via the shell. For help setting up the `grpcurl` command, refer to [gRPC Usage](../getting-started/grpc-usage).
 
 Use the following line: 
 
@@ -233,7 +233,7 @@ Use the following line:
 grpcurl -expand-headers -H 'Authorization: Bearer <token>' -emit-defaults -plaintext <device_ip>:<grpc_server_port> hal.gnss.Gnss.GetDeviceStatus
 ```
 
-The `token` field is the fetched TDC-E authorization token. For help fetching this token, see [gRPC Usage](/getting-started/grpc-usage). The `device-ip:grpc_server_port` is the TDC-E IP address and the gRPC serving port. For example, if the `token` value was `token` and the address and port were `192.168.0.100:8081`, you would use the following line to see the device status of the GNSS service.
+The `token` field is the fetched TDC-E authorization token. For help fetching this token, see [gRPC Usage](../getting-started/grpc-usage). The `device-ip:grpc_server_port` is the TDC-E IP address and the gRPC serving port. For example, if the `token` value was `token` and the address and port were `192.168.0.100:8081`, you would use the following line to see the device status of the GNSS service.
 
 ```bash
 grpcurl -expand-headers -H 'Authorization: Bearer token' -emit-defaults -plaintext 192.168.0.100:8081 hal.gnss.Gnss.GetDeviceStatus
@@ -248,7 +248,7 @@ The response should be in this format:
 "rebootRequired": false
 ```
 
-Additionally, you can use the `gRPC Clicker` VSCode extension for working with gRPC services. For help setting the service up, refer to [gRPC Usage](/getting-started/grpc-usage).
+Additionally, you can use the `gRPC Clicker` VSCode extension for working with gRPC services. For help setting the service up, refer to [gRPC Usage](../getting-started/grpc-usage).
 
 ### 1.3. Application Deployment
 
@@ -295,7 +295,7 @@ CMD ["./gnss-grpc"]
 
 #### 1.2.3. Deploying to Portainer
 
-To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](/getting-started/working-with-docker#3-working-with-portainer). As soon as the image and container are set up, the application starts running.
+To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](../getting-started/working-with-docker#3-working-with-portainer). As soon as the image and container are set up, the application starts running.
 
 > **📝 Note**
 >

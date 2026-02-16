@@ -16,7 +16,7 @@ In this section, the Serial interface of the TDC-E device and examples of its us
 >
 > When creating **additional containers**, make sure to use **host paths** when mapping volumes or devices.
 >
-> See [Device-specific Paths](/getting-started/working-with-docker#13-device-specific-paths) for the correct mount points and device nodes available on your device.
+> See [Device-specific Paths](../getting-started/working-with-docker#13-device-specific-paths) for the correct mount points and device nodes available on your device.
 
 
 > **ℹ️ TDC-E Serial Interfaces**
@@ -49,7 +49,7 @@ In this subsection, setting up the serial device is discussed. Using the dedicat
  - Transceiver Power
  - Slew Rate
 
-In the following subsections, setting up the mode of a serial device is discussed. This is done using the Serial HAL Service `hal.serial.Serial`. Examples using `grpcurl` are given below. For more information about using gRPC services, refer to [gRPC Usage](/getting-started/grpc-usage).
+In the following subsections, setting up the mode of a serial device is discussed. This is done using the Serial HAL Service `hal.serial.Serial`. Examples using `grpcurl` are given below. For more information about using gRPC services, refer to [gRPC Usage](../getting-started/grpc-usage).
 
 #### 1.1.1. Setting Up Serial Mode
 
@@ -436,7 +436,7 @@ CMD ["./modbus-serial"]
 
 **1.2.2.3. Deploying to Portainer**
 
-To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](/getting-started/working-with-docker#3-working-with-portainer). 
+To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](../getting-started/working-with-docker#3-working-with-portainer). 
 
 As soon as the image and container are set up, the application starts running.
 
@@ -599,7 +599,7 @@ CMD ["./serial"]
 
 **1.3.2.3. Deploying to Portainer**
 
-To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](/getting-started/working-with-docker#3-working-with-portainer).
+To deploy the application to the TDC-E device, `Portainer` can be used. To see instructions on the process, refer to [Working with Portainer](../getting-started/working-with-docker#3-working-with-portainer).
 
 As soon as the image and container are set up, the application starts running.
 

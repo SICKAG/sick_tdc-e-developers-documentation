@@ -18,7 +18,7 @@ This device supports Docker for both development and deployment purposes.
 
 > **ℹ️ Info**
 >
-> Make sure to refer to [Docker Authorization Policy Scope](/getting-started/docker-authorization-policy-scope) when working with Docker. Created containers also have to adhere to the policy.
+> Make sure to refer to [Docker Authorization Policy Scope](./docker-authorization-policy-scope) when working with Docker. Created containers also have to adhere to the policy.
 
 
 ## 1. Creating Docker Containers
@@ -95,7 +95,7 @@ docker run -it \
 
 > **📝 Note**
 >
-> See [Device-specific Paths](/getting-started/working-with-docker#13-device-specific-paths) below for mapping correct paths to your container.
+> See [Device-specific Paths](./working-with-docker#13-device-specific-paths) below for mapping correct paths to your container.
 
 
 This starts the alpine container in an interactive shell with data from **host** location `/datafs/operator` mounted to **container** location `/home/root/data`. Files created in the container directory `/home/root/data` will persist on the host.
@@ -129,7 +129,7 @@ This runs the Alpine shell with:
 >
 > Access to host devices, privileged mode, and additional capabilities may be restricted by the device’s Docker authorization policy.
 >
-> See [Device-specific Paths](/getting-started/working-with-docker#13-device-specific-paths) below for mapping correct paths to your container.
+> See [Device-specific Paths](./working-with-docker#13-device-specific-paths) below for mapping correct paths to your container.
 
 
 **Docker Compose**

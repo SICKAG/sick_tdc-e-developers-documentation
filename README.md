@@ -1,8 +1,20 @@
 # SICK TDC-E Developer's Documentation
 
-## Welcome!
+## 📘 TDC-E BaseOS Documentation (Current)
 
-This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki), aimed at customers, users and developers alike to explore the TDC-E's options, capabilities and programmability. We want the user to get to know the TDC-E device so that its wide variety of options could be used to their full extent. To that end, the Developer's Documentation serves as a guide which contains the following file structure:
+**👉 [View the Complete TDC-E BaseOS Developer Documentation](https://sickag.github.io/sick_tdc-e-developers-documentation/)**
+
+The new TDC-E device with BaseOS documentation is available on GitHub Pages and includes:
+- **Getting Started** - Installation, gRPC setup, Docker workflows
+- **Code Samples** - Examples for CAN, DIO, GNSS, Serial, Networking, and more
+- **AppEngine Documentation** - Lua crowns and capabilities
+- **Interface Snippets** - Ready-to-use code for hardware interfaces
+
+---
+
+## 📙 TDC-E L4M Documentation (Legacy)
+
+This is the [SICK TDC-E L4M Developer's Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki), aimed at customers and developers using the legacy L4M firmware. The wiki contains the following file structure:
 
 * TDC-E Configuration
   * [L4M Configurations and Connections](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/TDC%E2%80%90E-L4M-Configuration-and-Connections)
@@ -27,6 +39,28 @@ This is the [SICK TDC-E Developer's Documentation](https://github.com/SICKAG/sic
 * [Tutorials](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/tutorials)
 * [Useful Links](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki/Useful-Links)
 * [Docs](https://github.com/SICKAG/sick_tdc-e-developers-documentation/tree/main/docs)
+
+---
+
+## 📂 Repository Structure
+
+This repository contains:
+
+- **[docs/tdc-e-base/](docs/tdc-e-base/)** - BaseOS documentation source (published to GitHub Pages)
+- **[interface-snippets/](interface-snippets/)** - Code examples by interface type
+- **[examples/](examples/)** - Complete project examples
+- **[tutorials/](tutorials/)** - Step-by-step tutorials
+- **[Wiki](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki)** - Legacy L4M firmware documentation
+
+---
+
+## 🚀 Quick Links
+
+- **BaseOS Documentation:** https://sickag.github.io/sick_tdc-e-developers-documentation/
+- **L4M Wiki:** https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki
+- **Code Examples:** [examples/](examples/) | [interface-snippets/](interface-snippets/)
+
+---
 
 ## TDC-E Configuration
 The TDC-E Configuration section describes how to configure parts of the TDC-E so as to be able to utilize it to its full extent. The configuration is split into two parts: network and interface configuration. Each one describes how to connect your TDC-E with the desired service.

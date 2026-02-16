@@ -268,8 +268,8 @@ local response_body = response:getContent()
 
 Fallback address can be set using the same code snippet as for setting dhcp or static IP, see sections: 
 
- - [Set DHCP mode](/code-samples/networking#141-set-dhcp-mode)
- - [Set Static IP address](/code-samples/networking#142-set-static-ip-address)
+ - [Set DHCP mode](./networking#141-set-dhcp-mode)
+ - [Set Static IP address](./networking#142-set-static-ip-address)
 
 
 ### 1.5. Setup WLAN Interface
@@ -586,7 +586,7 @@ local response = client:execute(request)
 local response_code = response:getStatusCode()
 local response_body = response:getContent()
 ```
-- See: [Get gateway priority list](/code-samples/networking#161-get-gateway-priority-list)
+- See: [Get gateway priority list](./networking#161-get-gateway-priority-list)
 
 
 ### 1.7. Modem

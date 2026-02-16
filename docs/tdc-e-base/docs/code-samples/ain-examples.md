@@ -269,7 +269,7 @@ service AnalogIN {
 ```
 </details>
 
-To list all available Analog Input services, use `grpcurl`, which is an open-source utility for accessing gRPC services via the shell. For help setting up the `grpcurl` command, refer to [gRPC Usage](/getting-started/grpc-usage).
+To list all available Analog Input services, use `grpcurl`, which is an open-source utility for accessing gRPC services via the shell. For help setting up the `grpcurl` command, refer to [gRPC Usage](../getting-started/grpc-usage).
 
 To list all available Analog Input calls, use the following line:
 
@@ -277,7 +277,7 @@ To list all available Analog Input calls, use the following line:
 grpcurl -expand-headers -H 'Authorization: Bearer <token>' -emit-defaults -plaintext <device_ip>:<grpc_server_port> list hal.analogin.AnalogIN
 ```
 
-The `token` field is the fetched TDC-E authorization token. For help fetching this token, refer to [gRPC Usage](/getting-started/grpc-usage). The `device-ip:grpc_server_port` is the TDC-E IP address and the gRPC serving port. For example, if the `token` value was `token` and the address and port were `192.168.0.100:8081`, you would use the following line to list all available Analog Input services.
+The `token` field is the fetched TDC-E authorization token. For help fetching this token, refer to [gRPC Usage](../getting-started/grpc-usage). The `device-ip:grpc_server_port` is the TDC-E IP address and the gRPC serving port. For example, if the `token` value was `token` and the address and port were `192.168.0.100:8081`, you would use the following line to list all available Analog Input services.
 
 ```bash
 grpcurl -expand-headers -H 'Authorization: Bearer token' -emit-defaults -plaintext 192.168.0.100:8081 list hal.analogin.AnalogIN
@@ -294,7 +294,7 @@ hal.analogin.AnalogIN.SetState
 hal.analogin.AnalogIN.SetMeasureMode
 ```
 
-Additionally, you can use the `gRPC Clicker` VSCode extension for working with gRPC services. For help setting the service up, refer to [gRPC Usage](/getting-started/grpc-usage).
+Additionally, you can use the `gRPC Clicker` VSCode extension for working with gRPC services. For help setting the service up, refer to [gRPC Usage](../getting-started/grpc-usage).
 
 
 ### 1.3. Application Deployment
@@ -342,7 +342,7 @@ CMD ["./ain-grpc"]
 
 #### 1.2.3. Deploying to Portainer
 
-To deploy the application to the TDC-E device, [Portainer](https://192.168.0.100:9443/) can be used. To see instructions on the process, refer to [Working with Portainer](/getting-started/working-with-docker#3-working-with-portainer). As soon as the image and container are set up, the application starts running.
+To deploy the application to the TDC-E device, [Portainer](https://192.168.0.100:9443/) can be used. To see instructions on the process, refer to [Working with Portainer](../getting-started/working-with-docker#3-working-with-portainer). As soon as the image and container are set up, the application starts running.
 
 > **📝 Note**
 >
