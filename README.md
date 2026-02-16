@@ -1,8 +1,8 @@
 # SICK TDC-E Developer's Documentation
 
-## 📘 TDC-E BaseOS Documentation (Current)
+## TDC-E BaseOS Documentation (Current)
 
-**👉 [View the Complete TDC-E BaseOS Developer Documentation](https://sickag.github.io/sick_tdc-e-developers-documentation/)**
+**[View the Complete TDC-E BaseOS Developer Documentation](https://sickag.github.io/sick_tdc-e-developers-documentation/)**
 
 The new TDC-E device with BaseOS documentation is available on GitHub Pages and includes:
 - **Getting Started** - Installation, gRPC setup, Docker workflows
@@ -12,7 +12,7 @@ The new TDC-E device with BaseOS documentation is available on GitHub Pages and 
 
 ---
 
-## 📙 TDC-E L4M Documentation (Legacy)
+## TDC-E L4M Documentation (Legacy)
 
 This is the [SICK TDC-E L4M Developer's Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki), aimed at customers and developers using the legacy L4M firmware. The wiki contains the following file structure:
 
@@ -42,7 +42,7 @@ This is the [SICK TDC-E L4M Developer's Documentation](https://github.com/SICKAG
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 This repository contains:
 
@@ -54,7 +54,7 @@ This repository contains:
 
 ---
 
-## 🚀 Quick Links
+## Quick Links
 
 - **BaseOS Documentation:** https://sickag.github.io/sick_tdc-e-developers-documentation/
 - **L4M Wiki:** https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki

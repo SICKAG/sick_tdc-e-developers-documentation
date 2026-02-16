@@ -6,7 +6,7 @@ title: TDC-E BaseOS Developer Documentation
 
 Welcome to the developer documentation for the SICK TDC-E device with BaseOS firmware. This documentation provides comprehensive guides, code samples, and API references for developing applications on the TDC-E platform.
 
-## 🚀 Getting Started
+## Getting Started
 
 Start here if you're new to TDC-E BaseOS development:
 
@@ -16,7 +16,7 @@ Start here if you're new to TDC-E BaseOS development:
 - **[Docker Authorization Policy](getting-started/docker-authorization-policy-scope)** - Security and permissions
 - **[Networking Configuration](getting-started/networking)** - Network setup and configuration
 
-## 📚 Code Samples by Interface
+## Code Samples by Interface
 
 Explore code examples for each hardware interface:
 
@@ -30,13 +30,13 @@ Explore code examples for each hardware interface:
 - **[WPAN Examples](code-samples/wpan-examples)** - Wireless Personal Area Network
 - **[Networking Examples](code-samples/networking)** - Network configuration and management
 
-## ⚙️ AppEngine Documentation
+## AppEngine Documentation
 
 Learn about the AppEngine platform and Lua development:
 
 - **[AppEngine CROWN Documentation](app-engine-docs/app-engine-docs)** - Comprehensive AppEngine guide
 
-## 📖 Additional Resources
+## Additional Resources
 
 - [GitHub Repository](https://github.com/SICKAG/sick_tdc-e-developers-documentation) - Source code and examples
 - [Legacy L4M Documentation](https://github.com/SICKAG/sick_tdc-e-developers-documentation/wiki) - For older TDC-E L4M firmware
