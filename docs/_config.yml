@@ -8,6 +8,19 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  auto_ids: true
+
+# Plugins  
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+
+# Relative links settings
+relative_links:
+  enabled: true
+  collections: false
 
 # Include/exclude
 include:
